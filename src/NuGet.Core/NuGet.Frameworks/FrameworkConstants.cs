@@ -66,13 +66,14 @@ namespace NuGet.Frameworks
             public const string XamarinTVOS = "Xamarin.TVOS";
             public const string XamarinXbox360 = "Xamarin.Xbox360";
             public const string XamarinXboxOne = "Xamarin.XboxOne";
-            public const string UAP = "UAP";
-        }
+			public const string UAP = "UAP";
+			public const string NuGet = "NuGet";
+		}
 
-        /// <summary>
-        /// Interned frameworks that are commonly used in NuGet
-        /// </summary>
-        public static class CommonFrameworks
+		/// <summary>
+		/// Interned frameworks that are commonly used in NuGet
+		/// </summary>
+		public static class CommonFrameworks
         {
             public static readonly NuGetFramework Net11 = new NuGetFramework(FrameworkIdentifiers.Net, new Version(1, 1, 0, 0));
             public static readonly NuGetFramework Net2 = new NuGetFramework(FrameworkIdentifiers.Net, new Version(2, 0, 0, 0));

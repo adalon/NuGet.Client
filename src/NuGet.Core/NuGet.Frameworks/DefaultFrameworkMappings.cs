@@ -43,8 +43,8 @@ namespace NuGet.Frameworks
                             new KeyValuePair<string, string>("XamarinPlayStationThree", FrameworkConstants.FrameworkIdentifiers.XamarinPlayStation3),
                             new KeyValuePair<string, string>("Xamarin.PlayStationFour", FrameworkConstants.FrameworkIdentifiers.XamarinPlayStation4),
                             new KeyValuePair<string, string>("XamarinPlayStationFour", FrameworkConstants.FrameworkIdentifiers.XamarinPlayStation4),
-                            new KeyValuePair<string, string>("XamarinPlayStationVita", FrameworkConstants.FrameworkIdentifiers.XamarinPlayStationVita),
-                        };
+							new KeyValuePair<string, string>("XamarinPlayStationVita", FrameworkConstants.FrameworkIdentifiers.XamarinPlayStationVita),
+						};
                 }
 
                 return _identifierSynonyms;
@@ -92,7 +92,8 @@ namespace NuGet.Frameworks
                             new KeyValuePair<string, string>(FrameworkConstants.FrameworkIdentifiers.NetCore, "netcore"),
                             new KeyValuePair<string, string>(FrameworkConstants.FrameworkIdentifiers.WinRT, "winrt"), // legacy
                             new KeyValuePair<string, string>(FrameworkConstants.FrameworkIdentifiers.UAP, "uap"),
-                        };
+							new KeyValuePair<string, string>(FrameworkConstants.FrameworkIdentifiers.NuGet, "nuget"),
+						};
                 }
 
                 return _identifierShortNames;
@@ -332,6 +333,14 @@ namespace NuGet.Frameworks
                             new FrameworkRange(
                                 new NuGetFramework(FrameworkConstants.FrameworkIdentifiers.WinRT, FrameworkConstants.EmptyVersion),
                                 new NuGetFramework(FrameworkConstants.FrameworkIdentifiers.WinRT, new Version(4, 5, 0, 0)))),
+
+						// NuGet projects support any framework
+                        new OneWayCompatibilityMappingEntry(new FrameworkRange(
+							new NuGetFramework(FrameworkConstants.FrameworkIdentifiers.NuGet, FrameworkConstants.EmptyVersion),
+							new NuGetFramework(FrameworkConstants.FrameworkIdentifiers.NuGet, FrameworkConstants.MaxVersion)),
+							new FrameworkRange(
+								new NuGetFramework(FrameworkConstants.SpecialIdentifiers.Any, FrameworkConstants.EmptyVersion),
+								new NuGetFramework(FrameworkConstants.SpecialIdentifiers.Any, FrameworkConstants.MaxVersion))),
 
                         // NetCoreApp1.0 projects support NetStandard1.6
                         CreateStandardMapping(
